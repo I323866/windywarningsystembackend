@@ -1,0 +1,50 @@
+{
+  "name": "express_ts",
+  "version": "0.0.1",
+  "description": "Test",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run build && npm run watch",
+    "debug": "node --inspect ./dist/server.js",
+    "build": "npm run build-ts && npm run tslint",
+    "watch-node": "nodemon ./dist/server.js",
+    "watch-ts": "tsc -w",
+    "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"yellow.bold,green.bold\"  \"npm run watch-ts\" \"npm run watch-node\"",
+    "build-ts": "tsc",
+    "tslint": "tslint -c tslint.json -p tsconfig.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.wdf.sap.corp:SET-SPBF-FW-CN/express_ts.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/body-parser": "^1.16.8",
+    "@types/compression": "^0.0.35",
+    "@types/errorhandler": "^0.0.32",
+    "@types/express": "^4.11.1",
+    "@types/lodash": "^4.14.91",
+    "@types/morgan": "^1.7.35",
+    "@types/node": "^9.4.6",
+    "concurrently": "^3.5.1",
+    "nodemon": "^1.13.0",
+    "ts-node": "^5.0.0",
+    "tslint": "^5.12.1",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.3.3"
+  },
+  "dependencies": {
+    "@types/formidable": "^1.0.31",
+    "body-parser": "^1.18.3",
+    "compression": "^1.7.3",
+    "errorhandler": "^1.5.0",
+    "express": "^4.16.4",
+    "formidable": "^1.2.1",
+    "lodash": "^4.17.11",
+    "moment": "^2.24.0",
+    "morgan": "^1.9.1",
+    "@types/oracledb": "^4.0.4",
+    "oracledb": "^4.0.1"
+  }
+}

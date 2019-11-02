@@ -1,6 +1,6 @@
 import * as db  from '../dao/getdb'
 import _ from 'lodash'
-//  判断其值是否大于等于4m/s  
+
 export  const checkWarning = async () => {
   const latestdata = await getLatest()
   const latestMin10data = await getLatestMin10()
@@ -31,12 +31,22 @@ export  const checkWarning = async () => {
     // to do popup error message
   }
 }
+export  const updateWarningOn = async () => {
+
+  console.log(123)
+}
+export  const updateDisable = async () => {
+
+  console.log(123)
+}
 //  告警内容【类别：风向趋势告警，内容：注意风向变化】
 async function  checkWindDir (latestwind:any,latestmin10wind:any,latestTDZwind:any) {
     if ((Math.abs(latestwind-latestmin10wind) >= 60) || (Math.abs(latestwind-latestTDZwind) >= 60)){
-      return true
-    }else{
-      return false
+      const data = {
+        type :"风向趋势告警",
+        content : "注意风向变化"
+      }
+      return data
     }
 }
 //告警内容【类别：风速趋势告警，内容：风速快速变化】

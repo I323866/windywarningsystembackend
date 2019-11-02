@@ -1,5 +1,5 @@
 import { Router, Application } from 'express'
-import * as PhotoController from '../controllers/AWOSwarning'
+import * as AWOSWarning from '../controllers/AWOSWarning'
 
 const ApiRouter: Router = Router()
 
@@ -13,7 +13,8 @@ export default (app: Application) => {
     );
     next();
   });
-  ApiRouter.get('/', PhotoController.getAWOSs)
-
+  ApiRouter.get('/', AWOSWarning.getAWOSs)
+  ApiRouter.post('/warning/', AWOSWarning.updateWarningOn)
+  ApiRouter.post('/disable/', AWOSWarning.updateDisable)
   app.use('/api/AWOSwarning', ApiRouter)
 }

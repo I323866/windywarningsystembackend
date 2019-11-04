@@ -1,7 +1,10 @@
 import * as db  from '../dao/getdb'
 
 export const  getRNO01 = () => {
-  const sql = "select  * from MHAPP.ELE01_AWOS t where  cccc='ZSSS' and RNO='02' and odate = to_char(sysdate,'yyyymmdd') and otime = to_char(sysdate,'hh24mi')";
+  const sql = "select REPORTID,CCCC,RECEIVETIME  ,INSERTTIME ,ODATE, OTIME ,RNO  ,TDZ  ,MID,END,  TDZ_RVR_1A, TDZ_RVR_10A,  TDZ_MOR_1A, TDZ_MOR_10A ,TDZ_BL_1A  ,TDZ_WIND_F2  ,TDZ_WIND_D2  ,TDZ_WIND_F10 ,TDZ_WIND_D10 ,TDZ_MAX_WIND_F ,TDZ_MAX_WIND_D ,TDZ_QNH, TDZ_QFE,  TDZ_TEMP, TDZ_HUMID,  TDZ_TD, TDZ_ROADTEMP, TDZ_CLD_HL"
+  +",MID_RVR_1A, MID_RVR_10A ,MID_MOR_1A ,MID_MOR_10A  ,MID_BL_1A, MID_WIND_F2 ,MID_WIND_D2, MID_WIND_F10, MID_WIND_D10, MID_MAX_WIND_F  ,MID_MAX_WIND_D,  MID_QNH MID_QFE,  MID_TEMP, MID_HUMID MID_TD, MID_ROADTEMP, MID_CLD_HL"
+  +", END_RVR_1A, END_RVR_10A ,END_MOR_1A ,END_MOR_10A  ,END_BL_1A, END_WIND_F2,  END_WIND_D2 ,END_WIND_F10,  END_WIND_D10, END_MAX_WIND_F, END_MAX_WIND_D, END_QNH END_QFE,  END_TEMP, END_HUMID END_TD, END_ROADTEMP, END_CLD_HL"
+  +" from MHAPP.ELE01_AWOS t where  cccc='ZSSS' and RNO='01'and rownum=1 order by receivetime desc"
   return db.executeQuery(sql, '')
 }
 

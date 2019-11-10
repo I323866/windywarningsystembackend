@@ -6,21 +6,15 @@ export class Messages {
   public id: number;
 
   @Column()
+  public category: string;
+
+  @Column()
   public type: string;
 
   @Column()
   public content: string;
 
   @Column()
-  public warningOn: string;
-
-  @Column()
   public createOn: string;
-
-  @Column()
-  public createDateOn: string;
-
-  @Column()
-  public disable: boolean;
 
 }

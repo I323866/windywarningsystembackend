@@ -1,5 +1,5 @@
 import { Router, Application } from 'express'
-import * as AWOS from '../controllers/AWOS'
+import * as remind from '../controllers/remind'
 
 const ApiRouter: Router = Router()
 
@@ -13,7 +13,8 @@ export default (app: Application) => {
   //   );
   //   next();
   // });
-  ApiRouter.get('/', AWOS.getAWOSs)
-
-  app.use('/api/AWOS', ApiRouter)
+  ApiRouter.get('/', remind.getRemind)
+  ApiRouter.put('/:id', remind.updateRemind)
+  ApiRouter.delete('/:id', remind.deleteRemind)
+  app.use('/api/remind', ApiRouter)
 }

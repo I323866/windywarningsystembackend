@@ -30,8 +30,8 @@ const getMessages = async () => {
     '5-5'
   ]
   let result = new Array()
-  let red =  new Array()
-  let yellow =  new Array()
+  let red = new Array()
+  let yellow = new Array()
   for (let index = 0; index < warning.length; index++) {
     const element = warning[index]
     let reminder = _.find(reminders, { id: element })
@@ -87,19 +87,20 @@ const getMessages = async () => {
     if (del1) {
       delete data[0]
     }
-    for (let index = 0; index < data.length; index++) {
-      const element = data[index]
-      if (element.color == 'yellow')
-      {
-        yellow.push(element)
-      }else {
-        red.push(element)
+    if (!del2 || !del1) {
+      for (let index = 0; index < data.length; index++) {
+        const element = data[index]
+        if (element.color == 'yellow') {
+          yellow.push(element)
+        } else {
+          red.push(element)
+        }
       }
     }
   }
-  red =  _.sortBy(red , -"createOn")
-  yellow =  _.sortBy(yellow , -"createOn")
-  result = _.concat(red , yellow)
+  red = _.sortBy(red, -'createOn')
+  yellow = _.sortBy(yellow, -'createOn')
+  result = _.concat(red, yellow)
   console.log(result)
   return result
 }

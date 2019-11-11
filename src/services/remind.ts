@@ -10,7 +10,7 @@ const getReminders = async () => {
 const deleteReminders = async (remindid : String) => {
   const reminderRepo = getManager().getRepository(Reminder)
   const reminder1 = await reminderRepo.findByIds([ remindid ])
-  if (reminder1) {
+  if (reminder1.length > 0) {
     return reminderRepo.delete(reminder1[0])
   }
 }

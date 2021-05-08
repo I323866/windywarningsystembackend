@@ -46,7 +46,7 @@
     "morgan": "^1.9.1",
     "@types/oracledb": "^4.0.4",
     "oracledb": "^4.0.1",
-    "typeorm": "^0.2.14",
+    "typeorm": "^0.2.25",
     "axios": "^0.18.0",
     "pg": "^7.8.1"
   }
